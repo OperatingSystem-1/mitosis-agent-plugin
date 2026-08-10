@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mitosis": {
+      "type": "http",
+      "url": "https://mitosislabs.ai/api/mcp"
+    }
+  }
+}
