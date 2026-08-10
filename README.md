@@ -13,10 +13,15 @@
 Agent plugin that connects an agent to a user's private [Mitosis](https://mitosislabs.ai)
 memory through a remote [Model Context Protocol](https://modelcontextprotocol.io/) server.
 
-Mitosis indexes the sources a user has connected — email, calendar, documents,
-contacts, chat history and notes — into a private graph. This plugin bundles the
-MCP server that queries that graph with seven skills that tell the agent when and
-how to use it.
+Mitosis indexes everything a user has connected into a single private graph —
+Google Workspace, Slack, Discord, Notion, Linear, GitHub, Obsidian vaults,
+WhatsApp, Telegram and Signal messages, uploaded files and documents, and prior
+conversations with other AI tools including ChatGPT, Claude and Codex. Sources
+outside that list can be registered as custom feeds and are searchable the same
+way.
+
+This plugin bundles the MCP server that queries the graph with seven skills that
+tell the agent when and how to use it.
 
 The plugin ships two manifests so the same directory loads in clients that
 implement either format:
