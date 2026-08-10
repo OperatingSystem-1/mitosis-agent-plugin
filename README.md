@@ -73,6 +73,16 @@ answers without any authentication.
 | `cortex_ingest_conversation` | Persist the current conversation |
 | `cortex_connectable_sources` | Sources available to connect |
 
+These read the user's own data and require sign-in. The server also exposes a
+public surface that needs no account:
+
+| Tool | Purpose |
+|---|---|
+| `get_pricing` | Plans, credit allowances, metered rates, add-ons |
+| `search_docs` | Keyword search across the documentation |
+| `get_platform_status` | Operational status of the site, API, and MCP server |
+| `list_skills` | Agent skills published by Mitosis |
+
 ## Skills
 
 `memory-ask`, `memory-recall`, `memory-remember`, `memory-manifest`,
@@ -101,8 +111,13 @@ silently unresolvable in every client, so this check runs in CI on every push.
 ## Disclosure
 
 Published by Mitosis Labs, Inc., the maintainer of the Mitosis platform this
-plugin connects to. Mitosis has a free tier; [paid plans](https://mitosislabs.ai/#pricing)
-are listed on the site.
+plugin connects to.
+
+Mitosis is a commercial service: a 7-day trial, then plans from $7.99/month.
+The public tools above — `get_pricing`, `search_docs`,
+`get_platform_status`, `list_skills` — need no account. The `cortex_*` tools
+read a user's own connected data and require sign-in.
+[Plans and pricing](https://mitosislabs.ai/#pricing).
 
 ---
 
