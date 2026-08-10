@@ -1,0 +1,35 @@
+{
+  "name": "mitosis",
+  "description": "Official Mitosis plugins for Claude Code and Cowork.",
+  "version": "1.0.0",
+  "owner": {
+    "name": "Mitosis Labs",
+    "url": "https://mitosislabs.ai"
+  },
+  "plugins": [
+    {
+      "name": "mitosis-memory",
+      "displayName": "Mitosis Memory",
+      "source": "./",
+      "description": "Give Claude the user's own private memory: the email, calendar, documents, contacts, chat history and notes they have connected at mitosislabs.ai, searchable with citations.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Mitosis Labs",
+        "url": "https://mitosislabs.ai"
+      },
+      "homepage": "https://mitosislabs.ai",
+      "repository": "https://github.com/OperatingSystem-1/mitosis-agent-plugin",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": [
+        "memory",
+        "search",
+        "retrieval",
+        "citations",
+        "knowledge-graph",
+        "rag"
+      ],
+      "tags": ["memory", "search", "citations", "email", "calendar", "documents"]
+    }
+  ]
+}
