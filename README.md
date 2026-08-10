@@ -1,4 +1,14 @@
-# Mitosis Memory
+<p align="center">
+  <img src="assets/logo.svg" width="96" height="96" alt="Mitosis Labs">
+</p>
+
+<h1 align="center">Mitosis Memory</h1>
+
+<p align="center">
+  <a href="https://agent-plugins.org/specification"><img src="https://img.shields.io/badge/Agent%20Plugins-1.0.0-08080c" alt="Agent Plugins 1.0.0"></a>
+  <a href="https://cursor.com/docs/plugins"><img src="https://img.shields.io/badge/Cursor-plugin-08080c" alt="Cursor plugin"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-08080c" alt="MIT"></a>
+</p>
 
 Agent plugin that connects an agent to a user's private [Mitosis](https://mitosislabs.ai)
 memory through a remote [Model Context Protocol](https://modelcontextprotocol.io/) server.
@@ -90,10 +100,67 @@ silently unresolvable in every client, so this check runs in CI on every push.
 
 ## Disclosure
 
-Published by Mitosis Labs, the maintainer of the Mitosis platform this plugin
-connects to. Mitosis has a free tier; paid plans are listed at
-https://mitosislabs.ai/pricing.
+Published by Mitosis Labs, Inc., the maintainer of the Mitosis platform this
+plugin connects to. Mitosis has a free tier; [paid plans](https://mitosislabs.ai/#pricing)
+are listed on the site.
 
-## License
+---
 
-MIT — see [LICENSE](LICENSE).
+## Legal
+
+**Copyright © 2026 Mitosis Labs, Inc. All rights reserved.**
+
+### License
+
+The source in this repository — manifests, validation scripts, CI configuration
+and skill documents — is released under the [MIT License](LICENSE). You may use,
+copy, modify, and redistribute it under those terms, provided the copyright
+notice and license text travel with it.
+
+### Trademarks
+
+**Mitosis**, **Mitosis Labs**, the Mitosis logo, and the hexafoil mark in
+`assets/logo.svg` are trademarks of Mitosis Labs, Inc., whether or not
+registered.
+
+The MIT License covers the code in this repository and grants **no** licence,
+express or implied, to any Mitosis trademark, service mark, logo, or trade name.
+You may not use them to name or brand a fork or derivative work, to suggest
+sponsorship, affiliation, or endorsement by Mitosis Labs, or in a way likely to
+cause confusion as to origin. Nominative reference — stating accurately that a
+work interoperates with Mitosis — is permitted. Any other use requires prior
+written permission.
+
+### Hosted service
+
+The MCP endpoint at `https://mitosislabs.ai/api/mcp`, the Mitosis platform, and
+the data reachable through them are a hosted service operated by Mitosis Labs,
+Inc. They are **not** covered by the MIT License and are not redistributable.
+Access is governed by the [Terms of Service](https://mitosislabs.ai/terms) and
+the [Privacy Policy](https://mitosislabs.ai/privacy). Nothing in this repository
+grants a right to operate a competing or derivative service under the Mitosis
+name, or to access the platform other than through published interfaces.
+
+### Content and assets
+
+Documentation, prose, and brand assets in this repository — including
+`assets/logo.svg` — are © Mitosis Labs, Inc. The logo may be reproduced
+unmodified to identify this plugin or an integration with Mitosis. It may not be
+altered, recoloured, incorporated into another mark, or used as the icon of a
+different product.
+
+### Third-party notices
+
+Skill documents are also published, under the same MIT terms, at
+[`mitosis-memory-skills`](https://github.com/OperatingSystem-1/mitosis-memory-skills).
+The Agent Plugins and Cursor JSON Schemas vendored in `schemas/` remain the
+property of their respective authors and are included solely for offline
+validation.
+
+### Contact
+
+Licensing, trademark permission, and security reports: **pj@mitosislabs.ai**
+
+<p align="center">
+  <sub>© 2026 Mitosis Labs, Inc. &nbsp;·&nbsp; <a href="https://mitosislabs.ai">mitosislabs.ai</a> &nbsp;·&nbsp; <a href="https://mitosislabs.ai/terms">Terms</a> &nbsp;·&nbsp; <a href="https://mitosislabs.ai/privacy">Privacy</a></sub>
+</p>
