@@ -1,0 +1,37 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pyyaml
+
+      - name: Validate manifests and skills
+        run: node scripts/validate.mjs
+
+      - name: Check skills match the canonical source
+        run: |
+          git clone --depth 1 -q \
+            https://github.com/OperatingSystem-1/mitosis-memory-skills.git /tmp/canonical
+          if diff -ruq /tmp/canonical/skills skills; then
+            echo "skills/ matches mitosis-memory-skills"
+          else
+            echo "::warning::skills/ has drifted from OperatingSystem-1/mitosis-memory-skills."
+            echo "::warning::Both repos publish the same skills to different marketplaces; reconcile them."
+          fi

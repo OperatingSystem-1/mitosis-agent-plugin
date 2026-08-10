@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "mitosis-memory",
+  "version": "1.0.0",
+  "description": "Query a user's private Mitosis memory — connected email, calendar, documents, contacts and chat history — with citations, and write durable facts back.",
+  "author": {
+    "name": "Mitosis Labs",
+    "email": "pj@mitosislabs.ai",
+    "url": "https://mitosislabs.ai"
+  },
+  "homepage": "https://mitosislabs.ai",
+  "repository": "https://github.com/OperatingSystem-1/mitosis-agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "memory",
+    "search",
+    "retrieval",
+    "citations",
+    "knowledge-graph",
+    "rag",
+    "mcp"
+  ]
+}

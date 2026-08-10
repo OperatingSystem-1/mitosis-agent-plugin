@@ -1,0 +1,35 @@
+{
+  "name": "mitosis-memory",
+  "displayName": "Mitosis Memory",
+  "version": "1.0.0",
+  "description": "Connect Cursor to a user's private Mitosis memory via a remote MCP server — search connected email, calendar, documents, contacts and chat history with citations, and write durable facts back.",
+  "author": {
+    "name": "Mitosis Labs",
+    "email": "pj@mitosislabs.ai"
+  },
+  "publisher": "Mitosis Labs",
+  "homepage": "https://mitosislabs.ai",
+  "repository": "https://github.com/OperatingSystem-1/mitosis-agent-plugin",
+  "license": "MIT",
+  "logo": "assets/logo.svg",
+  "category": "productivity",
+  "keywords": [
+    "memory",
+    "search",
+    "retrieval",
+    "citations",
+    "knowledge-graph",
+    "rag",
+    "mcp"
+  ],
+  "tags": [
+    "memory",
+    "search",
+    "citations",
+    "email",
+    "calendar",
+    "documents"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.cursor-plugin/mcp.json"
+}
