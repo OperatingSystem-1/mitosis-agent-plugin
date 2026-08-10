@@ -106,30 +106,42 @@ for (const [file, schemaFile, label] of manifests) {
   }
 }
 
-// The two manifests must not drift apart on identity.
+// The Grok manifest has no published schema to validate against, so at minimum
+// require it to exist — a missing one costs the plugin its version and its MCP
+// server in the xAI marketplace's generated index, with nothing failing loudly.
+for (const file of [".grok-plugin/plugin.json", ".mcp.json"]) {
+  if (!existsSync(path.join(root, file))) {
+    errors.push(`Grok manifest: ${file} is missing`);
+  }
+}
+
+// The manifests must not drift apart on identity.
 try {
   const ap = readJson(path.join(root, "plugin.json"));
-  const cursor = readJson(path.join(root, ".cursor-plugin/plugin.json"));
-  for (const field of ["name", "version", "license", "homepage", "repository"]) {
-    if (ap[field] !== cursor[field]) {
-      errors.push(
-        `manifest drift: "${field}" is "${ap[field]}" in plugin.json but "${cursor[field]}" in .cursor-plugin/plugin.json`,
-      );
+  for (const file of [".cursor-plugin/plugin.json", ".grok-plugin/plugin.json"]) {
+    const other = readJson(path.join(root, file));
+    for (const field of ["name", "version", "license", "homepage", "repository"]) {
+      if (ap[field] !== other[field]) {
+        errors.push(
+          `manifest drift: "${field}" is "${ap[field]}" in plugin.json but "${other[field]}" in ${file}`,
+        );
+      }
     }
   }
 } catch {
   /* already reported above */
 }
 
-// Both MCP configs must describe the same server URL, even though the transport
-// value differs: the spec says "streamable-http", Cursor's shipped plugins use "http".
+// Every MCP config must describe the same server URL, even though the transport
+// value differs: the spec says "streamable-http", Cursor and Grok Build both use "http".
 try {
-  const apUrls = Object.values(readJson(path.join(root, "mcp.json")).mcpServers ?? {}).map((s) => s.url);
-  const cursorUrls = Object.values(
-    readJson(path.join(root, ".cursor-plugin/mcp.json")).mcpServers ?? {},
-  ).map((s) => s.url);
-  if (JSON.stringify(apUrls) !== JSON.stringify(cursorUrls)) {
-    errors.push(`MCP drift: ${JSON.stringify(apUrls)} (mcp.json) vs ${JSON.stringify(cursorUrls)} (.cursor-plugin/mcp.json)`);
+  const urlsIn = (file) =>
+    JSON.stringify(Object.values(readJson(path.join(root, file)).mcpServers ?? {}).map((s) => s.url));
+  const canonical = urlsIn("mcp.json");
+  for (const file of [".cursor-plugin/mcp.json", ".mcp.json"]) {
+    if (urlsIn(file) !== canonical) {
+      errors.push(`MCP drift: ${canonical} (mcp.json) vs ${urlsIn(file)} (${file})`);
+    }
   }
 } catch (err) {
   errors.push(`MCP config: ${err.message}`);

@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased
+
+- Grok Build manifest (`.grok-plugin/plugin.json`) and MCP config (`.mcp.json`)
+  using that ecosystem's `http` transport value, for submission to
+  [xai-org/plugin-marketplace](https://github.com/xai-org/plugin-marketplace).
+  `.mcp.json` is the shared convention in that ecosystem; the xAI catalog also
+  accepts `.claude-plugin/plugin.json` in place of the Grok manifest.
+- `scripts/validate.mjs` now holds all three manifests to one identity and one
+  server URL, and fails when the Grok pair is absent. The xAI catalog generates
+  its component index by scanning exactly these two paths, so a missing `.mcp.json`
+  would have published the plugin advertising zero MCP servers, silently.
+
 ## 1.0.0
 
 Initial release.

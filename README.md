@@ -30,8 +30,9 @@ implement either format:
 |---|---|---|
 | `plugin.json`, `mcp.json` | [Agent Plugins 1.0.0](https://agent-plugins.org/specification) | VS Code, GitHub Copilot, Kiro, Cursor |
 | `.cursor-plugin/plugin.json`, `.cursor-plugin/mcp.json` | [Cursor Plugins](https://cursor.com/docs/plugins) | Cursor |
+| `.grok-plugin/plugin.json`, `.mcp.json` | [Grok Build plugins](https://github.com/xai-org/plugin-marketplace) | Grok Build |
 
-Both point at the same server and the same `skills/` directory.
+All three point at the same server and the same `skills/` directory.
 
 ## Install
 
@@ -40,6 +41,9 @@ Both point at the same server and the same `skills/` directory.
 
 **VS Code** — run **Chat: Install Plugin From Source** and enter
 `https://github.com/OperatingSystem-1/mitosis-agent-plugin`.
+
+**Grok Build** — type `/marketplace`, find **mitosis-memory**, press `i`. Or run
+`grok plugin install mitosis-memory --trust` from the terminal.
 
 **Skills only, any agent** — the same skills are published standalone:
 
