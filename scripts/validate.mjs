@@ -115,10 +115,24 @@ for (const file of [".grok-plugin/plugin.json", ".mcp.json"]) {
   }
 }
 
+// Claude Code reads .claude-plugin/. `claude plugin validate .` is the
+// authority on its shape (and is required before any submission to Anthropic's
+// plugin marketplace); this only asserts the files exist so their absence fails
+// here rather than at submission time.
+for (const file of [".claude-plugin/plugin.json", ".claude-plugin/marketplace.json"]) {
+  if (!existsSync(path.join(root, file))) {
+    errors.push(`Claude manifest: ${file} is missing`);
+  }
+}
+
 // The manifests must not drift apart on identity.
 try {
   const ap = readJson(path.join(root, "plugin.json"));
-  for (const file of [".cursor-plugin/plugin.json", ".grok-plugin/plugin.json"]) {
+  for (const file of [
+    ".cursor-plugin/plugin.json",
+    ".grok-plugin/plugin.json",
+    ".claude-plugin/plugin.json",
+  ]) {
     const other = readJson(path.join(root, file));
     for (const field of ["name", "version", "license", "homepage", "repository"]) {
       if (ap[field] !== other[field]) {

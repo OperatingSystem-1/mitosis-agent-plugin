@@ -1,0 +1,29 @@
+{
+  "name": "mitosis-memory",
+  "displayName": "Mitosis Memory",
+  "version": "1.0.0",
+  "description": "Give Claude the user's own private memory: the email, calendar, documents, contacts, chat history and notes they have connected at mitosislabs.ai, searchable with citations.",
+  "author": {
+    "name": "Mitosis Labs",
+    "url": "https://mitosislabs.ai"
+  },
+  "homepage": "https://mitosislabs.ai",
+  "repository": "https://github.com/OperatingSystem-1/mitosis-agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "memory",
+    "search",
+    "retrieval",
+    "citations",
+    "knowledge-graph",
+    "rag",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": {
+    "mitosis": {
+      "type": "http",
+      "url": "https://mitosislabs.ai/api/mcp"
+    }
+  }
+}

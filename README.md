@@ -31,8 +31,9 @@ implement either format:
 | `plugin.json`, `mcp.json` | [Agent Plugins 1.0.0](https://agent-plugins.org/specification) | VS Code, GitHub Copilot, Kiro, Cursor |
 | `.cursor-plugin/plugin.json`, `.cursor-plugin/mcp.json` | [Cursor Plugins](https://cursor.com/docs/plugins) | Cursor |
 | `.grok-plugin/plugin.json`, `.mcp.json` | [Grok Build plugins](https://github.com/xai-org/plugin-marketplace) | Grok Build |
+| `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json` | [Claude Code plugins](https://code.claude.com/docs/en/plugin-marketplaces) | Claude Code, Cowork |
 
-All three point at the same server and the same `skills/` directory.
+All four point at the same server and the same `skills/` directory.
 
 ## Install
 
@@ -44,6 +45,13 @@ All three point at the same server and the same `skills/` directory.
 
 **Grok Build** — type `/marketplace`, find **mitosis-memory**, press `i`. Or run
 `grok plugin install mitosis-memory --trust` from the terminal.
+
+**Claude Code** — add this repo as a marketplace, then install:
+
+```
+/plugin marketplace add OperatingSystem-1/mitosis-agent-plugin
+/plugin install mitosis-memory@mitosis
+```
 
 **Skills only, any agent** — the same skills are published standalone:
 
