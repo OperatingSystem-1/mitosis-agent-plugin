@@ -21,7 +21,16 @@ Add local content to memory so it can be retrieved later.
 
 ## How
 
-For individual files or a handful of paths:
+Prefer the MCP tool when you have it.
+
+**stdio MCP** (`mi-cortex-mcp`): `cortex_ingest` with `path` or `paths`.
+**remote MCP**: `cortex_ingest` with `filename` + `content` (or `files[]`).
+Read the file yourself first if the server cannot see the disk.
+
+A new source waits for Standard or a described goal — record that with
+`cortex_choose_enrichment`. Do not choose for the user.
+
+If you are shelling out instead, for individual files or a handful of paths:
 
 ```bash
 mi cortex ingest <paths...> --office <office-id>
@@ -37,7 +46,8 @@ mi cortex sync-vault <dir> --office <office-id>
 
 | Situation | Command |
 |---|---|
-| A few specific files | `mi cortex ingest <paths...>` |
+| A few specific files (MCP) | `cortex_ingest` (`path` on stdio, or `filename`+`content` on remote) |
+| A few specific files (CLI) | `mi cortex ingest <paths...>` |
 | A notes directory or Obsidian vault | `mi cortex sync-vault <dir>` |
 
 `sync-vault` skips `.obsidian`, `.trash`, and `.git`, chunks large notes so they
