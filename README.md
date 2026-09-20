@@ -85,6 +85,7 @@ answers without any authentication.
 | `cortex_ask` | Hybrid retrieval across the graph, returned as a cited block |
 | `cortex_recall` | Semantic vector search |
 | `cortex_remember` | Write a durable fact back to memory |
+| `cortex_ingest` | Push a document (path on stdio, or filename+content on remote) |
 | `cortex_manifest` | Index of connected sources and their counts |
 | `cortex_status` | Ingestion state per feed |
 | `cortex_ingest_conversation` | Persist the current conversation |
